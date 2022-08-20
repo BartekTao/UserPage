@@ -39,4 +39,15 @@ export class UserPageComponent implements OnInit {
     })
   }
 
+  searchName(name: string): void {
+    this.dataSource = this.rowData.filter((user) =>{ return user.name.includes(name)});
+  }
+
+  resetBalance(): void {
+    this.rowData.forEach((user) =>{
+      user.balance = '0';
+    })
+    this.dataSource = this.rowData;
+  }
+
 }

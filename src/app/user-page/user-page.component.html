@@ -3,7 +3,7 @@
         <mat-label>Filter</mat-label>
         <input matInput #filter>
     </mat-form-field>
-    <button class="searchBtn" mat-flat-button color="primary">Search</button>
+    <button class="searchBtn" mat-flat-button color="primary" (click)="searchName(filter.value)">Search</button>
 </div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -36,5 +36,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 <div class="inputDiv">
-    <button class="resetBtn" mat-flat-button color="primary">Reset Balance</button>
+    <button class="resetBtn" mat-flat-button color="primary" (click)="resetBalance()">Reset Balance</button>
 </div>
