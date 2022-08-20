@@ -25,11 +25,11 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
     this.httpClient.get("assets/users.json").subscribe(data =>{
       let res = Object.assign(new Array<User>, data);
+      res.sort(function (a, b) {
+        return a.name > b.name ? 1 : -1;
+      });
       res.forEach((user) =>{
         let date = this.datePipe.transform(new Date(user.registered.substring(0, 19)),"dd-MM-yyyy dd:mm:ss")?.toString();
-        res.sort(function (a, b) {
-          return a.name > b.name ? 1 : -1;
-        });
         if (date) {
           user.registered = date;
         }else {
