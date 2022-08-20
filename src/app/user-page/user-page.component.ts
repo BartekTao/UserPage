@@ -48,8 +48,8 @@ export class UserPageComponent implements OnInit {
 
   resetBalance(): void {
     this.rowData.forEach((user) =>{
-      user.balance = '0';
-    })
+      user.balance = '0.00';
+    });
     this.dataSource = this.rowData;
   }
 
